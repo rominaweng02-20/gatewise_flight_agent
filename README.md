@@ -28,38 +28,12 @@ GateWise is a historical research tool, not a live airport monitoring service. I
 
 GateWise combines four independent data sources to investigate airport departure conditions
 
-| Data source | Information used | Analytical purpose |
-|---|---|---|
-| TSA posted security wait times | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns |
-| Bureau of Transportation Statistics (BTS) | Flight departure delays, cancellations, and percentage of flights departing 15+ minutes late | Measure historical flight departure reliability |
-| NOAA National Centers for Environmental Information (NCEI) | Hourly weather observations, including visibility, wind, gusts, precipitation, and temperature | Examine weather conditions associated with airport disruptions |
-| FAA OPSNET | Daily airport operations, operational delays, and reported delay causes | Compare airport operational activity and disruption patterns |
-
-### Data Provenance and Loading
-
-**TSA Security Wait Times**
-
-- Source: Hugging Face dataset `digitalhen/us-airport-wait-times`.
-- Used fields include posted standard and PreCheck wait estimates, airport, terminal, and timestamps.
-- Analytics function: `security_patterns()`.
-
-**BTS Flight Reliability**
-
-- Source: Bureau of Transportation Statistics, TranStats On-Time Performance data.
-- Used to analyze departure delays, cancellations, and the share of classified departed flights that departed at least 15 minutes late.
-- Analytics function: `flight_reliability()`.
-
-**NOAA Weather**
-
-- Source: NOAA National Centers for Environmental Information hourly observations.
-- Used fields include temperature, precipitation, visibility, wind speed, and wind gusts.
-- Analytics function: `weather_conditions()`.
-
-**FAA Airport Operations**
-
-- Source: Federal Aviation Administration OPSNET.
-- Used to analyze daily airport operations, operational delays, and reported delay categories, including weather, volume, equipment, runway, and other causes.
-- Analytics function: `airport_operations()`.
+| Data source | Information used | Analytical purpose | Analytics function |
+|---|---|---|---|
+| TSA posted security wait times | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns | `security_patterns()` |
+| Bureau of Transportation Statistics (BTS) | Flight departure delays, cancellations, and percentage of flights departing 15+ minutes late | Measure historical flight departure reliability | `flight_reliability()` |
+| NOAA National Centers for Environmental Information (NCEI) | Hourly weather observations, including visibility, wind, gusts, precipitation, and temperature | Examine weather conditions associated with airport disruptions | `weather_conditions()` |
+| FAA OPSNET | Daily airport operations, operational delays, and reported delay causes | Compare airport operational activity and disruption patterns | `airport_operations()` |
 
 ### Loading and Reproducing the Analysis
 
