@@ -1,22 +1,31 @@
 # GateWise - NYC Airport Research Agent
 
+---
+
 ## 1. Project Overview
 
 **GateWise** is an AI-powered airport departure research assistant that investigates airport security wait times, flight reliability, weather, and airport operations to help travelers plan ahead for a seamless departure experience. Gatewise can help assist in planning how early to arrive and how much disruption risk to plan for.
 
 GateWsie addresses this problem through a multi-agent research system that investigates data sources in parallel, combines their findings, and produces a concise, evidence-backed response with citations.
 
-###Primary Target User: 
+### Primary Target User:
+
 Any air traveler planning to travel from any of the airports in NYC (JFK, LGA, and EWR)
 
-###Scope: GateWise currently analyzes only the following:
+### Scope:
+
+GateWise currently analyzes only the following:
+
 - Airports: John F. Kennedy International (JFK), LaGuardia (LGA), and Newark Liberty International (EWR).
 - Date coverage: April 1, 2026 – August 31, 2026.
 - Data frequency: Daily and hourly, depending on the source and analysis.
 
 GateWise is a historical research tool, not a live airport monitoring service. It cannot provide current security-line conditions, airline-specific wait times, check-in or bag-drop estimates, or recommendations for airports outside its supported coverage.
 
+---
+
 ## 2. Data Sources:
+
 GateWise combines four independent data sources to investigate airport departure conditions
 
 | Data source | Information used | Analytical purpose |
@@ -29,21 +38,25 @@ GateWise combines four independent data sources to investigate airport departure
 ### Data Provenance and Loading
 
 **TSA Security Wait Times**
+
 - Source: Hugging Face dataset `digitalhen/us-airport-wait-times`.
 - Used fields include posted standard and PreCheck wait estimates, airport, terminal, and timestamps.
 - Analytics function: `security_patterns()`.
 
 **BTS Flight Reliability**
+
 - Source: Bureau of Transportation Statistics, TranStats On-Time Performance data.
 - Used to analyze departure delays, cancellations, and the share of classified departed flights that departed at least 15 minutes late.
 - Analytics function: `flight_reliability()`.
 
 **NOAA Weather**
+
 - Source: NOAA National Centers for Environmental Information hourly observations.
 - Used fields include temperature, precipitation, visibility, wind speed, and wind gusts.
 - Analytics function: `weather_conditions()`.
 
 **FAA Airport Operations**
+
 - Source: Federal Aviation Administration OPSNET.
 - Used to analyze daily airport operations, operational delays, and reported delay categories, including weather, volume, equipment, runway, and other causes.
 - Analytics function: `airport_operations()`.
@@ -61,8 +74,9 @@ The main application imports the following analytical functions from `src.analyt
 - `airport_overview()`
 - `hourly_airport_patterns()`
 
-To reproduce the application: First, obtain the source datasets from the providers listed above and then prepare the datasets in the format expected by the project's `src.analytics` module. 
+To reproduce the application: First, obtain the source datasets from the providers listed above and then prepare the datasets in the format expected by the project's `src.analytics` module.
 
+---
 
 ## 3. Multi-Agent Research Architecture
 
@@ -95,9 +109,11 @@ The Writer uses this evidence registry to cite numerical findings in the final a
 
 This allows users to trace claims back to the underlying data and analytical calls.
 
+---
+
 ## 4. Sample Queries and Expected Results
 
-### Sample Query 1: 
+### Sample Query 1:
 
 **Query:**
 
@@ -123,6 +139,7 @@ Using the largest observed P95 security estimate (28 minutes) and an assumed 45 
 This is an illustrative planning estimate, not a validated safe-arrival recommendation. The 45-minute overhead is an assumption, and posted security estimates do not guarantee individual wait times.
 
 **Limitations:**
+
 - July 15 security observations are distinct from flight statistics aggregated across Wednesdays in July.
 - Historical flight rates are context, not predictions for an individual flight.
 - Security waits should not be presented as causing flight delays.
@@ -139,22 +156,26 @@ This is an illustrative planning estimate, not a validated safe-arrival recommen
 
 **Baseline: Same Model, No Tools and No System Prompt**
 
-That sounds like you are planning well ahead! A Wednesday morning departure from JFK's busy Terminal 4 requires a bit of strategy. 
+> That sounds like you are planning well ahead! A Wednesday morning departure from JFK's busy Terminal 4 requires a bit of strategy.
+>
+> Here is a recommended timeline and some key tips to keep in mind for your departure on **July 15, 2026**:
+>
+> ### **Recommended Timeline**
+>
+> - **For International Flights:** Plan to arrive at Terminal 4 by **5:00 AM** (3 hours prior).
+> - **For Domestic Flights:** Plan to arrive at Terminal 4 by **6:00 AM** (2 hours prior).
+>
+> *Note: Terminal 4 is one of the largest terminals at JFK (major hub for Delta, as well as many international airlines like Emirates, Singapore, and Virgin Atlantic). The walk to the furthest gates (especially the B gates) can take 15 to 20 minutes even after you pass security.*
+>
+> ### **How to prepare as the date approaches:**
+>
+> 1. **TSA PreCheck / CLEAR:** If you have these, they are highly recommended for T4, as morning rush hours (6:00 AM to 8:00 AM) can have very long standard security lines.
+> 2. **Transportation:**
+>    - If taking a rideshare (Uber/Lyft) or taxi from NYC, aim to leave by 4:15 AM – 5:15 AM (depending on your starting point) to avoid any early morning construction or highway bottlenecks.
+>    - If taking the **LIRR or Subway to Jamaica Station**, the AirTrain runs 24/7 and takes about 15 minutes from Jamaica to Terminal 4.
+> 3. **Lounge Access:** Terminal 4 has some of the best lounges at JFK, including the Delta Sky Club, American Express Centurion Lounge, and Chase Sapphire Lounge. If you have access, arriving early to grab breakfast is highly recommended.
 
-Here is a recommended timeline and some key tips to keep in mind for your departure on **July 15, 2026**:
-
-### **Recommended Timeline**
-* **For International Flights:** Plan to arrive at Terminal 4 by **5:00 AM** (3 hours prior).
-* **For Domestic Flights:** Plan to arrive at Terminal 4 by **6:00 AM** (2 hours prior).
-
-*Note: Terminal 4 is one of the largest terminals at JFK (major hub for Delta, as well as many international airlines like Emirates, Singapore, and Virgin Atlantic). The walk to the furthest gates (especially the B gates) can take 15 to 20 minutes even after you pass security.*
-
-### **How to prepare as the date approaches:**
-1. **TSA PreCheck / CLEAR:** If you have these, they are highly recommended for T4, as morning rush hours (6:00 AM to 8:00 AM) can have very long standard security lines.
-2. **Transportation:** 
-   * If taking a rideshare (Uber/Lyft) or taxi from NYC, aim to leave by 4:15 AM – 5:15 AM (depending on your starting point) to avoid any early morning construction or highway bottlenecks.
-   * If taking the **LIRR or Subway to Jamaica Station**, the AirTrain runs 24/7 and takes about 15 minutes from Jamaica to Terminal 4.
-3. **Lounge Access:** Terminal 4 has some of the best lounges at JFK, including the Delta Sky Club, American Express Centurion Lounge, and Chase Sapphire Lounge. If you have access, arriving early to grab breakfast is highly recommended.
+---
 
 ### Sample Query 2: Which NYC-area airport offers the most predictable 9 AM departure?
 
@@ -165,6 +186,7 @@ Here is a recommended timeline and some key tips to keep in mind for your depart
 **Expected answer:**
 
 GateWise should compare JFK, LaGuardia (LGA), and Newark (EWR) using historical data from April 1 through August 31, 2026, focusing on departures around 9 AM.
+
 LGA is the most predictable for security and EWR is the most reliable for flights. JFK is the weakest on both.
 
 - **Security (standard queue, 8–10 AM, Apr 1–Aug 31, 2026):**
@@ -177,12 +199,12 @@ LGA is the most predictable for security and EWR is the most reliable for flight
 - **Conclusion:** JFK is the least predictable option. The choice between LGA and EWR depends on whether security-line predictability or flight reliability matters more.
 
 **Limitations:**
+
 - Historical only (Apr 1–Aug 31, 2026), standard queues only, with the 8–10 AM hourly window used as a proxy for a 9 AM departure.
 - Security figures are hourly airport-level weighted posted estimates, not individual passenger waits.
 - Late-departure shares and average delays cover departed flights only. Cancellation rates use all scheduled flights.
 - Delays over 30 minutes are not available in this dataset.
 - Does not cover live conditions, airline-specific differences, terminal-level queues, or check-in, bag-drop, and gate-walk time.
-
 
 **Underlying Data and Analytical Tools:**
 
@@ -197,6 +219,7 @@ LGA is the most predictable for security and EWR is the most reliable for flight
 > What terminal in EWR do you recommend?
 
 **Expected answer:**
+
 GateWise should compare EWR Terminals A, B, and C using historical TSA data from April 1–August 31, 2026.
 
 - **Terminal A:** Daily weighted average standard wait ranged from 1.40 to 6.82 minutes across Apr 1–Aug 31, 2026 (E6). Its peak hourly average in the sampled early-April data was 20.80 minutes, on April 12 (E2).
@@ -207,6 +230,7 @@ GateWise should compare EWR Terminals A, B, and C using historical TSA data from
 - **Weather:** Hourly observations ranged from -1.1 °C to 32.2 °C with precipitation up to 3.0 mm (E3). They are not linked to flight reliability because the data does not compare overlapping conditions.
 
 **Limitations:**
+
 - BTS data is airport-level, so it cannot show delay or cancellation differences between terminals.
 - Hourly security, flight, and weather results were truncated to 400 rows, so the hourly figures are early-season samples, mostly from April 2026.
 - Terminal A's figures are daily averages from the full period, while the B and C figures are hourly peaks from the April sample. They are not a like-for-like comparison.
@@ -226,40 +250,42 @@ GateWise should compare EWR Terminals A, B, and C using historical TSA data from
 
 All calls use `start_date=2026-04-01, end_date=2026-08-31`.
 
-
 **Baseline: Same Model, No Tools and No System Prompt**
 
-> For a 9:00 AM departure—meaning you need to arrive at the airport between 7:00 AM and 7:30 AM—**LaGuardia (LGA)** has historically and recently offered the most predictable departure experience. 
-
+> For a 9:00 AM departure—meaning you need to arrive at the airport between 7:00 AM and 7:30 AM—**LaGuardia (LGA)** has historically and recently offered the most predictable departure experience.
+>
 > While LGA used to be a punchline for airport delays, its massive multi-billion-dollar redevelopment (completed in 2022) has transformed it into the most efficient and predictable of the three NYC-area airports, especially for morning flights.
-
+>
 > Here is how the three airports rank for a 9:00 AM departure across key metrics.
-
+>
 > ### 1. Flight Delays & Cancellations (Airspace and Runway Factors)
-> * **Winner: LGA**
-> * **Loser: EWR**
-
-> * **LaGuardia (LGA):** Because LGA has no international flights (except for Canada and select Caribbean destinations), it operates on a highly structured domestic schedule. At 9:00 AM, LGA is wrapping up its first major bank of business-travel departures. While LGA's short, intersecting runways are vulnerable to severe weather, on a standard day, its departure queue moves much faster than JFK or EWR.
-> * **JFK:** JFK is a massive international hub. While morning is relatively quiet for international departures (which peak in the afternoon/evening), JFK’s sheer size means taxi times can be incredibly long. It is not uncommon to spend 30 to 45 minutes idling on the tarmac before takeoff.
-> * **Newark (EWR):** Historically, EWR has the worst on-time departure record of the three. It suffers from severe airspace congestion (sharing airspace with LGA and JFK, plus Philadelphia). By 9:00 AM, any cascading delays from the early morning rush are already starting to compound. 
-
+>
+> - **Winner: LGA**
+> - **Loser: EWR**
+>
+> - **LaGuardia (LGA):** Because LGA has no international flights (except for Canada and select Caribbean destinations), it operates on a highly structured domestic schedule. At 9:00 AM, LGA is wrapping up its first major bank of business-travel departures. While LGA's short, intersecting runways are vulnerable to severe weather, on a standard day, its departure queue moves much faster than JFK or EWR.
+> - **JFK:** JFK is a massive international hub. While morning is relatively quiet for international departures (which peak in the afternoon/evening), JFK’s sheer size means taxi times can be incredibly long. It is not uncommon to spend 30 to 45 minutes idling on the tarmac before takeoff.
+> - **Newark (EWR):** Historically, EWR has the worst on-time departure record of the three. It suffers from severe airspace congestion (sharing airspace with LGA and JFK, plus Philadelphia). By 9:00 AM, any cascading delays from the early morning rush are already starting to compound.
+>
 > ### 2. Security Wait Times & Terminal Experience
-> * **Winner: LGA (Terminals B and C)**
-> * **Runner-Up: EWR (Terminal A only)**
-> * **Loser: JFK**
-
-> * **LGA:** Terminals B and C are brand new and feature state-of-the-art security screening technology (meaning you don't have to take electronics out of your bag in most lanes). TSA PreCheck and CLEAR are highly optimized here. Even general security lines at Terminal B rarely exceed 15 minutes.
-> * **EWR:** If you are flying out of the brand-new **Terminal A**, the experience is excellent. However, if you are flying United out of **Terminal C** or an international carrier out of **Terminal B**, security lines are notoriously unpredictable and can easily exceed 30–40 minutes during the morning rush.
-> * **JFK:** JFK is currently undergoing a massive, multi-year **$19 billion redevelopment project**. Terminal construction has caused erratic TSA line surges, confusing pedestrian detours, and sudden terminal closures. Furthermore, Terminal 4 (Delta/International) is massive; even after clearing security, the walk to your gate can take 15–20 minutes.
-
+>
+> - **Winner: LGA (Terminals B and C)**
+> - **Runner-Up: EWR (Terminal A only)**
+> - **Loser: JFK**
+>
+> - **LGA:** Terminals B and C are brand new and feature state-of-the-art security screening technology (meaning you don't have to take electronics out of your bag in most lanes). TSA PreCheck and CLEAR are highly optimized here. Even general security lines at Terminal B rarely exceed 15 minutes.
+> - **EWR:** If you are flying out of the brand-new **Terminal A**, the experience is excellent. However, if you are flying United out of **Terminal C** or an international carrier out of **Terminal B**, security lines are notoriously unpredictable and can easily exceed 30–40 minutes during the morning rush.
+> - **JFK:** JFK is currently undergoing a massive, multi-year **$19 billion redevelopment project**. Terminal construction has caused erratic TSA line surges, confusing pedestrian detours, and sudden terminal closures. Furthermore, Terminal 4 (Delta/International) is massive; even after clearing security, the walk to your gate can take 15–20 minutes.
+>
 > ### Summary Verdict
+>
+> For a **9:00 AM departure**, book your flight out of **LaGuardia (LGA)**, ideally flying Delta (Terminal C) or United/American/Southwest (Terminal B).
+>
+> - **Why:** You will experience the fastest security lines, the most modern terminals, the shortest tarmac taxi times, and a quick car ride to the airport.
 
-> For a **9:00 AM departure**, book your flight out of **LaGuardia (LGA)**, ideally flying Delta (Terminal C) or United/American/Southwest (Terminal B). 
+---
 
-> * **Why:** You will experience the fastest security lines, the most modern terminals, the shortest tarmac taxi times, and a quick car ride to the airport.
-
-
-### Sample Query 3: 
+### Sample Query 3:
 
 **Query:**
 
@@ -279,6 +305,7 @@ At JFK, security waits are shortest overnight and in the early morning. Midday h
 - **Trade-off:** The security-optimal hours (overnight) and the flight-reliability-optimal hour (midday) do not coincide. The answer should say so rather than give a single ranking.
 
 **Limitations:**
+
 - Hourly datasets were capped at 400 rows, so these are illustrative early-season patterns (mostly April) rather than averages over all 17,195 seasonal observations.
 - Posted security estimates, not measured passenger waits.
 - Hourly flight reliability for July is unavailable due to tool constraints (E6).
@@ -299,52 +326,59 @@ All calls except E6 use `start_date=2026-04-01, end_date=2026-08-31`.
 
 **Baseline: Same Model, No Tools and No System Prompt**
 
-> To get the smoothest experience at John F. Kennedy International Airport (JFK)—which is notorious for airspace congestion and terminal crowding—you have to balance two different factors: **air traffic reliability** (on-time departures) and **terminal foot traffic** (security wait times). 
-
+> To get the smoothest experience at John F. Kennedy International Airport (JFK)—which is notorious for airspace congestion and terminal crowding—you have to balance two different factors: **air traffic reliability** (on-time departures) and **terminal foot traffic** (security wait times).
+>
 > Historically, these two factors don't always align, but there are clear windows of time that offer the best experience, as well as specific periods you should avoid at all costs.
-
-
+>
 > ### 1. The Best Time for Reliable Departures: Early Morning
+>
 > If your priority is departing on time, **the earlier the flight, the better.**
-
-> *   **The Golden Window:** **6:00 AM – 9:00 AM**
-> *   **Why it works:** Flights scheduled in the early morning have the highest on-time departure rates (historically above 85-90%). The aircraft flying these routes usually arrived the night before and are already parked at the gate. Furthermore, the air traffic control (ATC) system in the congested Northeast corridor hasn't had time to back up yet. 
-> *   **The Trade-off:** To catch a 6:30 AM flight, you have to brave the morning security rush (which peaks between 5:00 AM and 7:00 AM).
-
+>
+> - **The Golden Window:** **6:00 AM – 9:00 AM**
+> - **Why it works:** Flights scheduled in the early morning have the highest on-time departure rates (historically above 85-90%). The aircraft flying these routes usually arrived the night before and are already parked at the gate. Furthermore, the air traffic control (ATC) system in the congested Northeast corridor hasn't had time to back up yet.
+> - **The Trade-off:** To catch a 6:30 AM flight, you have to brave the morning security rush (which peaks between 5:00 AM and 7:00 AM).
+>
 > ### 2. The Best Time for Short Security Waits: Mid-Day
+>
 > If you want to breeze through the terminal and security with minimal lines, aim for the mid-day lull.
-
-> *   **The Golden Window:** **10:00 AM – 2:00 PM**
-> *   **Why it works:** The early morning business and domestic rush has cleared out, and the massive wave of international travelers (bound for Europe and Asia) has not yet arrived. Security lines at major terminals (like Terminal 4 and Terminal 8) are historically at their shortest during these hours.
-> *   **The Trade-off:** Because delays in the U.S. airspace begin to cascade by early afternoon, a 1:00 PM departure has a slightly higher risk of a delay than a 7:00 AM departure, though it is still highly manageable.
-
+>
+> - **The Golden Window:** **10:00 AM – 2:00 PM**
+> - **Why it works:** The early morning business and domestic rush has cleared out, and the massive wave of international travelers (bound for Europe and Asia) has not yet arrived. Security lines at major terminals (like Terminal 4 and Terminal 8) are historically at their shortest during these hours.
+> - **The Trade-off:** Because delays in the U.S. airspace begin to cascade by early afternoon, a 1:00 PM departure has a slightly higher risk of a delay than a 7:00 AM departure, though it is still highly manageable.
+>
 > ### 3. Periods to Avoid (The "Danger Zones")
+>
 > If you want a smooth experience, avoid JFK during its peak international push and during peak commuter travel times.
-
+>
 > #### **The Daily Blackout Window: 4:00 PM – 8:00 PM**
-> This is the absolute worst time to depart from JFK. 
-> *   **The Congestion Peak:** JFK is a massive international gateway. Dozens of heavy aircraft bound for Europe, Africa, and South America depart in the late afternoon and evening. 
-> *   **The Delay Cascade:** By 4:00 PM, any delays at other major hubs (like Chicago, Atlanta, or Boston) have rippled into New York. The airspace becomes incredibly crowded, often leading to "ground stops" or tarmac delays.
-> *   **The Security Nightmare:** Terminal 1 and Terminal 4 (and to a lesser extent, Terminal 7 and 8) experience massive surges in passenger volume starting around 3:00 PM, leading to the longest security lines of the day.
-
+>
+> This is the absolute worst time to depart from JFK.
+>
+> - **The Congestion Peak:** JFK is a massive international gateway. Dozens of heavy aircraft bound for Europe, Africa, and South America depart in the late afternoon and evening.
+> - **The Delay Cascade:** By 4:00 PM, any delays at other major hubs (like Chicago, Atlanta, or Boston) have rippled into New York. The airspace becomes incredibly crowded, often leading to "ground stops" or tarmac delays.
+> - **The Security Nightmare:** Terminal 1 and Terminal 4 (and to a lesser extent, Terminal 7 and 8) experience massive surges in passenger volume starting around 3:00 PM, leading to the longest security lines of the day.
+>
 > #### **Weekly Patterns to Avoid:**
-> *   **Thursday and Friday Afternoons:** The combination of business travelers heading home and weekend leisure travelers creates a massive bottleneck starting around 2:00 PM.
-> *   **Sunday Evenings:** Heavy leisure travel return flows.
-
+>
+> - **Thursday and Friday Afternoons:** The combination of business travelers heading home and weekend leisure travelers creates a massive bottleneck starting around 2:00 PM.
+> - **Sunday Evenings:** Heavy leisure travel return flows.
+>
 > #### **Seasonal Warning:**
-> *   **Summer Afternoons (June – August):** The Northeast is highly prone to afternoon thunderstorms. Because JFK operates at near-capacity, a single thunderstorm at 3:00 PM can cause delays that last until midnight. If traveling in the summer, *always* book a morning flight.
-
+>
+> - **Summer Afternoons (June – August):** The Northeast is highly prone to afternoon thunderstorms. Because JFK operates at near-capacity, a single thunderstorm at 3:00 PM can cause delays that last until midnight. If traveling in the summer, *always* book a morning flight.
+>
 > ### 4. JFK Terminal-Specific Nuances
+>
 > Because JFK is divided into separate, unconnected terminals, your experience will depend heavily on which airline you fly:
-
-> *   **Terminal 1 (Air France, Lufthansa, Korean Air, etc.):** This terminal handles mostly international flights. Avoid departures between **4:00 PM and 9:00 PM**, when the terminal becomes incredibly cramped and security lines spill into the check-in area.
-> *   **Terminal 4 (Delta, Emirates, Virgin Atlantic):** The largest and busiest terminal. It is busy almost around the clock, but security lines are longest from **5:00 AM – 8:00 AM** (domestic rush) and **4:00 PM – 8:00 PM** (international rush). 
-> *   **Terminal 5 (JetBlue):** Has a massive morning rush. Avoid security here between **5:00 AM and 7:30 AM**, as well as Sunday afternoons.
-> *   **Terminal 8 (American, British Airways):** Generally the most efficient terminal at JFK, but still experiences a significant bottleneck during the transatlantic rush between **5:00 PM and 8:00 PM**.
-
+>
+> - **Terminal 1 (Air France, Lufthansa, Korean Air, etc.):** This terminal handles mostly international flights. Avoid departures between **4:00 PM and 9:00 PM**, when the terminal becomes incredibly cramped and security lines spill into the check-in area.
+> - **Terminal 4 (Delta, Emirates, Virgin Atlantic):** The largest and busiest terminal. It is busy almost around the clock, but security lines are longest from **5:00 AM – 8:00 AM** (domestic rush) and **4:00 PM – 8:00 PM** (international rush).
+> - **Terminal 5 (JetBlue):** Has a massive morning rush. Avoid security here between **5:00 AM and 7:30 AM**, as well as Sunday afternoons.
+> - **Terminal 8 (American, British Airways):** Generally the most efficient terminal at JFK, but still experiences a significant bottleneck during the transatlantic rush between **5:00 PM and 8:00 PM**.
+>
 > ### Summary: The Ultimate Strategy
-For the absolute smoothest JFK experience, book a flight departing between **8:00 AM and 9:30 AM**. 
-> *   Your flight is highly likely to depart on time.
-> *   If you arrive at the airport around 6:30 AM, you will hit the tail-end of the morning security rush, but with TSA PreCheck or CLEAR, you will breeze through.
-
-
+>
+> For the absolute smoothest JFK experience, book a flight departing between **8:00 AM and 9:30 AM**.
+>
+> - Your flight is highly likely to depart on time.
+> - If you arrive at the airport around 6:30 AM, you will hit the tail-end of the morning security rush, but with TSA PreCheck or CLEAR, you will breeze through.
