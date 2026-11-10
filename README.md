@@ -4,9 +4,7 @@
 
 ## 1. Project Overview
 
-**GateWise** is an AI-powered airport departure research assistant that investigates airport security wait times, flight reliability, weather, and airport operations to help travelers plan ahead for a seamless departure experience. Gatewise can help assist in planning how early to arrive and how much disruption risk to plan for.
-
-GateWsie addresses this problem through a multi-agent research system that investigates data sources in parallel, combines their findings, and produces a concise, evidence-backed response with citations.
+**GateWise** is an AI-powered airport research assistant that investigates airport security wait times, flight reliability, weather, and airport operations to help travelers plan ahead for a seamless departure experience. GateWise helps travelers plan when to arrive at the airport and assess potential disruption risks through a multi-agent research system that investigates data sources in parallel, synthesizes findings, and delivers concise, evidence-backed answers with citations. 
 
 ### Primary Target User:
 
@@ -56,7 +54,7 @@ To reproduce the application: First, obtain the source datasets from the provide
 
 ## 3. Multi-Agent Research Architecture
 
-GateReady uses a Deep Research architecture in which specialized agents investigate different aspects of an airport departure question.
+GateWise uses specialized research agents to investigate different aspects of an airport departure question.
 
 | Agent | Responsibility |
 |---|---|
@@ -190,6 +188,40 @@ LGA is the most predictable for security and EWR is the most reliable for flight
 | E3 | Weather conditions | NOAA NCEI, `weather_hourly_local` | `analyze_weather_risk_profile(airports=['EWR','JFK','LGA'], start_date=2026-04-01, end_date=2026-08-31, start_hour=8, end_hour=10, visibility_threshold_km=5.0, precipitation_threshold_mm=1.0, wind_threshold_m_s=10.0)` |
 | E4 | Flight delays and cancellations | BTS On-Time Performance, `flight_hourly` | `analyze_flight_risk_profile(airports=['EWR','JFK','LGA'], start_date=2026-04-01, end_date=2026-08-31, start_hour=8, end_hour=10)` |
 
+**Baseline: Same Model, No Tools and No System Prompt**
+
+> For a 9:00 AM departure—meaning you need to arrive at the airport between 7:00 AM and 7:30 AM—**LaGuardia (LGA)** has historically and recently offered the most predictable departure experience.
+>
+> While LGA used to be a punchline for airport delays, its massive multi-billion-dollar redevelopment (completed in 2022) has transformed it into the most efficient and predictable of the three NYC-area airports, especially for morning flights.
+>
+> Here is how the three airports rank for a 9:00 AM departure across key metrics.
+>
+> ### 1. Flight Delays & Cancellations (Airspace and Runway Factors)
+>
+> - **Winner: LGA**
+> - **Loser: EWR**
+>
+> - **LaGuardia (LGA):** Because LGA has no international flights (except for Canada and select Caribbean destinations), it operates on a highly structured domestic schedule. At 9:00 AM, LGA is wrapping up its first major bank of business-travel departures. While LGA's short, intersecting runways are vulnerable to severe weather, on a standard day, its departure queue moves much faster than JFK or EWR.
+> - **JFK:** JFK is a massive international hub. While morning is relatively quiet for international departures (which peak in the afternoon/evening), JFK’s sheer size means taxi times can be incredibly long. It is not uncommon to spend 30 to 45 minutes idling on the tarmac before takeoff.
+> - **Newark (EWR):** Historically, EWR has the worst on-time departure record of the three. It suffers from severe airspace congestion (sharing airspace with LGA and JFK, plus Philadelphia). By 9:00 AM, any cascading delays from the early morning rush are already starting to compound.
+>
+> ### 2. Security Wait Times & Terminal Experience
+>
+> - **Winner: LGA (Terminals B and C)**
+> - **Runner-Up: EWR (Terminal A only)**
+> - **Loser: JFK**
+>
+> - **LGA:** Terminals B and C are brand new and feature state-of-the-art security screening technology (meaning you don't have to take electronics out of your bag in most lanes). TSA PreCheck and CLEAR are highly optimized here. Even general security lines at Terminal B rarely exceed 15 minutes.
+> - **EWR:** If you are flying out of the brand-new **Terminal A**, the experience is excellent. However, if you are flying United out of **Terminal C** or an international carrier out of **Terminal B**, security lines are notoriously unpredictable and can easily exceed 30–40 minutes during the morning rush.
+> - **JFK:** JFK is currently undergoing a massive, multi-year **$19 billion redevelopment project**. Terminal construction has caused erratic TSA line surges, confusing pedestrian detours, and sudden terminal closures. Furthermore, Terminal 4 (Delta/International) is massive; even after clearing security, the walk to your gate can take 15–20 minutes.
+>
+> ### Summary Verdict
+>
+> For a **9:00 AM departure**, book your flight out of **LaGuardia (LGA)**, ideally flying Delta (Terminal C) or United/American/Southwest (Terminal B).
+>
+> - **Why:** You will experience the fastest security lines, the most modern terminals, the shortest tarmac taxi times, and a quick car ride to the airport.
+
+
 **Follow-Up:**
 
 > What terminal in EWR do you recommend?
@@ -228,37 +260,47 @@ All calls use `start_date=2026-04-01, end_date=2026-08-31`.
 
 **Baseline: Same Model, No Tools and No System Prompt**
 
-> For a 9:00 AM departure—meaning you need to arrive at the airport between 7:00 AM and 7:30 AM—**LaGuardia (LGA)** has historically and recently offered the most predictable departure experience.
->
-> While LGA used to be a punchline for airport delays, its massive multi-billion-dollar redevelopment (completed in 2022) has transformed it into the most efficient and predictable of the three NYC-area airports, especially for morning flights.
->
-> Here is how the three airports rank for a 9:00 AM departure across key metrics.
->
-> ### 1. Flight Delays & Cancellations (Airspace and Runway Factors)
->
-> - **Winner: LGA**
-> - **Loser: EWR**
->
-> - **LaGuardia (LGA):** Because LGA has no international flights (except for Canada and select Caribbean destinations), it operates on a highly structured domestic schedule. At 9:00 AM, LGA is wrapping up its first major bank of business-travel departures. While LGA's short, intersecting runways are vulnerable to severe weather, on a standard day, its departure queue moves much faster than JFK or EWR.
-> - **JFK:** JFK is a massive international hub. While morning is relatively quiet for international departures (which peak in the afternoon/evening), JFK’s sheer size means taxi times can be incredibly long. It is not uncommon to spend 30 to 45 minutes idling on the tarmac before takeoff.
-> - **Newark (EWR):** Historically, EWR has the worst on-time departure record of the three. It suffers from severe airspace congestion (sharing airspace with LGA and JFK, plus Philadelphia). By 9:00 AM, any cascading delays from the early morning rush are already starting to compound.
->
-> ### 2. Security Wait Times & Terminal Experience
->
-> - **Winner: LGA (Terminals B and C)**
-> - **Runner-Up: EWR (Terminal A only)**
-> - **Loser: JFK**
->
-> - **LGA:** Terminals B and C are brand new and feature state-of-the-art security screening technology (meaning you don't have to take electronics out of your bag in most lanes). TSA PreCheck and CLEAR are highly optimized here. Even general security lines at Terminal B rarely exceed 15 minutes.
-> - **EWR:** If you are flying out of the brand-new **Terminal A**, the experience is excellent. However, if you are flying United out of **Terminal C** or an international carrier out of **Terminal B**, security lines are notoriously unpredictable and can easily exceed 30–40 minutes during the morning rush.
-> - **JFK:** JFK is currently undergoing a massive, multi-year **$19 billion redevelopment project**. Terminal construction has caused erratic TSA line surges, confusing pedestrian detours, and sudden terminal closures. Furthermore, Terminal 4 (Delta/International) is massive; even after clearing security, the walk to your gate can take 15–20 minutes.
->
-> ### Summary Verdict
->
-> For a **9:00 AM departure**, book your flight out of **LaGuardia (LGA)**, ideally flying Delta (Terminal C) or United/American/Southwest (Terminal B).
->
-> - **Why:** You will experience the fastest security lines, the most modern terminals, the shortest tarmac taxi times, and a quick car ride to the airport.
+> Hands down, the best terminal at Newark Liberty International Airport (EWR) is **Terminal A**. 
+> 
+> In fact, it is currently considered one of the best airport terminals in the entire United States, having won the Skytrax award for "World’s Best New Airport Terminal" in 2024.
+> 
+> However, since your terminal is determined by your airline, here is a breakdown of why **Terminal A** is the best, how **Terminal C** compares, and why you should try to avoid **Terminal B**.
+> 
+> ---
+> 
+> ### 1. The Winner: Terminal A (The Brand New Masterpiece)
+> Opened in early 2023 after a $2.7 billion overhaul, Terminal A is modern, spacious, filled with natural light, and features local New Jersey-centric art and design.
+> 
+> *   **Airlines:** Air Canada, American Airlines, Delta Air Lines, JetBlue, and some United Airlines domestic flights.
+> *   **Why it’s the best:**
+>     *   **Efficiency:** The TSA security checkpoints are state-of-the-art and move incredibly fast. 
+>     *   **Vibe:** It is massive, airy, and doesn't feel cramped. There are excellent play areas for kids and sensory rooms.
+>     *   **Food:** Incredible options showcasing local NJ/NY favorites, including *Jersey Mike's*, *Town Providence* (fine dining), *Bang cookies*, and *Marcus Samuelsson’s Marcus Bar & Grill*.
+>     *   **Lounges:** Features brand-new, stunning lounges, including the Delta Sky Club, United Club, and American Admirals Club. (An American Express Centurion Lounge is also under construction).
+> 
+> ### 2. The Runner-Up: Terminal C (The United Airlines Megahub)
+> If you are flying United Airlines, you will likely end up here. While it is older than Terminal A, it has been heavily modernized and is a very solid terminal.
 
+> *   **Airlines:** United Airlines (domestic and international).
+> *   **Why it’s good:**
+    *   **The Food Scene:** It is famous for its iPad-ordering system at almost every seat and restaurant. It has great dining options like *Saison* (French bistro) and *Abruzzo Italian Steakhouse*.
+>     *   **Lounges:** If you are flying international business class, Terminal C houses the **United Polaris Lounge**, which is one of the best business-class lounges in the world (featuring a sit-down, à la carte restaurant).
+> *   **The Downside:** It can get incredibly crowded, and the gate areas can feel very cramped during peak bank hours.
+> 
+> ### 3. The One to Avoid: Terminal B
+> Terminal B is the oldest, most outdated terminal at EWR. 
+> 
+> *   **Airlines:** Most foreign international carriers (e.g., Lufthansa, British Airways, Singapore Airlines, Emirates) and Spirit.
+> *   **Why it’s tough:**
+>     *   It is split into three separate satellite concourses. If you go through security for one concourse, you cannot access the food or amenities in the others.
+>     *   The food and shopping options are highly mediocre and limited.
+>     *   The security lines can be agonizingly long and chaotic during evening international departure rushes.
+> 
+> 
+> ### Summary Recommendation:
+> *   **If you have a choice of airline:** Book **Delta, American, or JetBlue** so you can use **Terminal A**. 
+> *   **If you are flying United Business/First Class:** You will love **Terminal C** for the United Polaris Lounge.
+> *   **If you are flying international on a foreign carrier:** Prepare for **Terminal B** by arriving early, and > consider eating before you get to the airport.
 ---
 
 ### Sample Query 3:

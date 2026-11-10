@@ -6,7 +6,7 @@
 
 **Custom system prompt:** None
 
-**Run date:** 2026-11-09T18:32:11
+**Run date:** 2026-11-10T15:54:34
 
 **Method:** Each query was submitted independently to the same model without tools or custom system instructions.
 
@@ -21,32 +21,34 @@
 
 ### Actual baseline response
 
-That sounds like you are planning well ahead! A Wednesday morning departure from JFK's busy Terminal 4 requires a bit of strategy. 
+That is a peak summer travel date, and Terminal 4 is one of the busiest and largest terminals at JFK. Because an 8:00 AM departure falls right during the morning rush, here is a strategic guide to help you plan your departure.
 
-Here is a recommended timeline and some key tips to keep in mind for your departure on **July 15, 2026**:
+### 1. Recommended Arrival Times
+Because of ongoing airport construction and summer crowds, you should aim to be **inside the terminal** at the following times:
+*   **For International Flights:** Arrive by **5:00 AM** (3 hours prior).
+*   **For Domestic Flights:** Arrive by **6:00 AM** (2 hours prior).
 
-### **Recommended Timeline**
-* **For International Flights:** Plan to arrive at Terminal 4 by **5:00 AM** (3 hours prior).
-* **For Domestic Flights:** Plan to arrive at Terminal 4 by **6:00 AM** (2 hours prior).
+*Note: If you are checking bags or do not have TSA PreCheck/CLEAR, add an extra 30 minutes to these times.*
 
-*Note: Terminal 4 is one of the largest terminals at JFK (major hub for Delta, as well as many international airlines like Emirates, Singapore, and Virgin Atlantic). The walk to the furthest gates (especially the B gates) can take 15 to 20 minutes even after you pass security.*
+### 2. Getting to JFK (Transit & Traffic)
+*   **By Car/Rideshare (Uber/Lyft/Taxi):** If you are driving from Manhattan, Brooklyn, or Queens, traffic at 4:30 AM to 5:30 AM is usually light, but **JFK redevelopment construction (active through 2026)** can cause unexpected lane closures and bottlenecks right at the terminal loops. 
+*   **By Subway/LIRR + AirTrain (Highly Recommended):** Taking the LIRR from Penn Station or Grand Central to Jamaica, and then transferring to the AirTrain, is the most predictable route. The AirTrain drops you off directly inside Terminal 4.
 
-### **How to prepare as the date approaches:**
-1. **TSA PreCheck / CLEAR:** If you have these, they are highly recommended for T4, as morning rush hours (6:00 AM to 8:00 AM) can have very long standard security lines.
-2. **Transportation:** 
-   * If taking a rideshare (Uber/Lyft) or taxi from NYC, aim to leave by 4:15 AM – 5:15 AM (depending on your starting point) to avoid any early morning construction or highway bottlenecks.
-   * If taking the **LIRR or Subway to Jamaica Station**, the AirTrain runs 24/7 and takes about 15 minutes from Jamaica to Terminal 4.
-3. **Lounge Access:** Terminal 4 has some of the best lounges at JFK, including the Delta Sky Club, American Express Centurion Lounge, and Chase Sapphire Lounge. If you have access, arriving early to grab breakfast is highly recommended.
+### 3. Terminal 4 Specifics (What to Expect)
+*   **It is massive:** Terminal 4 is incredibly long. If your flight is departing from the far end of the B Gates (Concourse B), it can take **15 to 20 minutes to walk** to your gate after clearing security. 
+*   **Airlines:** T4 is the main hub for **Delta Air Lines**, as well as major international carriers like Emirates, Singapore Airlines, Virgin Atlantic, EL AL, and Copa. Expect long check-in lines for these airlines.
+*   **Security:** T4 has digital queue wait-time screens, but lines can back up quickly between 5:30 AM and 7:30 AM. 
+    *   If you have **TSA PreCheck** or **CLEAR**, make sure your boarding pass reflects this to use the expedited lanes.
 
-**How can I help you plan further?** I can assist with:
-* Finding the best airport hotels near JFK for the night before.
-* Parking options at JFK (and when you should reserve them).
-* Specific airline information or lounge details for Terminal 4.
+### To help me give you more specific advice:
+1. **Which airline are you flying?**
+2. **Is your flight domestic (within the US) or international?**
+3. **Do you have TSA PreCheck, CLEAR, or priority status?**
 
 ---
 
 
-## Sample Query 2: Comparing NYC-Area Airports
+## Sample Query 2.1: Comparing NYC-Area Airports
 
 **Query:**
 
@@ -54,51 +56,105 @@ Here is a recommended timeline and some key tips to keep in mind for your depart
 
 ### Actual baseline response
 
-For a **9:00 AM departure**, you will need to arrive at the airport between 7:00 AM and 7:30 AM. This is the absolute peak of the morning business-travel rush. 
+For a **9:00 AM departure**, the historical data and current airport conditions point to **LaGuardia (LGA)** as the most predictable and reliable airport of the three NYC-area hubs. 
 
-Historically, when looking at predictability—meaning the lowest likelihood of cancellations, the most consistent security times, and the best on-time departure rates—**JFK is the most predictable airport, followed closely by the newly renovated LaGuardia (LGA), with Newark (EWR) coming in last.**
+While LGA historically had a terrible reputation, its multi-billion-dollar redesign (completed in 2022) combined with its structural advantages makes it the clear winner for morning departures.
 
-Here is a breakdown of how the three airports compare specifically for a 9:00 AM departure, based on historical FAA and Bureau of Transportation Statistics (BTS) data.
-
----
-
-### 1. Flight Delays and Cancellations
-*Historically, JFK is the most reliable for on-time departures, while EWR is the most volatile.*
-
-*   **JFK (Best):** JFK has the best historical on-time departure rate of the three (typically hovering around 75–80% overall, and even higher for early morning flights). Because JFK handles a massive volume of international wide-body flights, air traffic control prioritizes its runway flows. 
-*   **LGA (Moderate):** LGA’s on-time performance has improved significantly since its multi-billion-dollar redesign. However, because LGA relies heavily on regional jets and short-haul domestic flights, it is highly susceptible to "delay propagation" (if a plane gets delayed in Boston or DC early in the morning, your LGA flight gets delayed). 
-*   **EWR (Worst):** Newark consistently ranks near the bottom of major US airports for on-time departures and has the highest rate of cancellations of the three. It shares highly congested airspace with LGA and JFK but suffers from structural runway constraints that lead to frequent FAA-imposed ground delays.
-
-### 2. Security Wait Times (7:00 AM – 7:30 AM window)
-*LGA is currently the fastest and most predictable; JFK is highly dependent on the terminal.*
-
-*   **LGA (Best):** The new Terminals B and C are state-of-the-art. Security screening is highly consolidated, uses modern tech (you don't have to take electronics out of bags in many lanes), and moves very quickly. Even without TSA PreCheck or CLEAR, LGA security is highly predictable.
-*   **JFK (Average):** JFK is highly segmented by terminal. If you are flying Delta (Terminal 4) or JetBlue (Terminal 5), security at 7:15 AM can be a massive bottleneck. Terminal 8 (American) is generally smoother. You must check your specific terminal ahead of time.
-*   **EWR (Variable):** If you are flying out of the brand-new Terminal A, security is fantastic. However, if you are flying United out of Terminal C, the morning rush is notoriously chaotic, with security lines that can randomly stretch into the baggage claim area. 
-
-### 3. Taxi Times (Gate to Takeoff)
-*LGA has the fastest taxi times; JFK has the longest.*
-
-*   **LGA (Best):** Because the airport is physically compact, once you push back from the gate, you are usually in the air within 15 minutes.
-*   **EWR (Average):** Taxi times are moderate, usually 15–25 minutes.
-*   **JFK (Worst):** This is JFK’s Achilles' heel. Even if your flight departs the gate exactly at 9:00 AM, JFK’s massive size and runway configurations mean you can easily spend 30 to 50 minutes taxiing in a queue before actually taking off. 
+Here is a detailed breakdown of how JFK, LGA, and EWR compare across your key metrics for a 9:00 AM flight.
 
 ---
 
-### The Verdict
+### 1. The Winner: LaGuardia (LGA)
+*LGA is best for travelers prioritizing predictability, speed, and modern facilities.*
 
-For a **9:00 AM departure**, your choice should come down to what kind of predictability you value most:
+*   **Security Wait Times (Excellent):** The new Terminals B and C feature state-of-the-art security checkpoints with massive throughput. TSA PreCheck and CLEAR lanes are highly efficient here. Even standard lines rarely exceed 15–20 minutes at this hour.
+*   **On-Time Performance (High):** Because LGA does not handle large international wide-body aircraft, its morning departure banks are highly streamlined. 
+*   **Taxi Time (Shortest):** LGA has a smaller physical footprint. Once you push back from the gate, you are usually in the air within 10 to 15 minutes.
+*   **The 9 AM Factor:** A 9:00 AM flight is in LGA’s "second wave" of the morning. Since most planes flying out at 9:00 AM arrived the night before (and slept at the gate), the risk of your inbound plane being delayed is very low.
 
-#### **Winner for Schedule Predictability: JFK**
-If your priority is **knowing your flight will actually take off** and not be cancelled or delayed by air traffic control, choose JFK. 
-*   *Tip:* Build an extra 30 minutes into your flight time expectations to account for tarmac taxi queues.
+### 2. The Runner-Up: JFK International (JFK)
+*JFK is generally reliable but is currently suffering from major predictability issues due to construction.*
 
-#### **Winner for Experience Predictability: LaGuardia (LGA)**
-If your priority is a **smooth, predictable airport experience** (getting through security quickly, short walks to the gate, and fast takeoffs once boarded), choose LGA. 
-*   *Note:* Only choose LGA if the weather forecast for the East Coast is completely clear; if there is rain or fog, LGA will delay faster than JFK.
+*   **The Construction Caveat (Major Warning):** JFK is currently undergoing a massive $19 billion redevelopment. This has caused severe traffic bottlenecks *getting to* the terminals. A trip that normally takes 45 minutes can randomly take 2 hours. This destroys "predictability" before you even enter the building.
+*   **Security (Highly Variable):** Security at JFK depends entirely on your terminal. Terminal 4 (Delta) and Terminal 1 can have massive morning bottlenecks. Terminal 8 (American) and Terminal 5 (JetBlue) are generally more predictable.
+*   **Taxi Times (Very Long):** JFK is massive. It is common to push back from the gate at 9:00 AM and not actually take off until 9:35 AM due to queueing on the tarmac.
 
-#### **The Airport to Avoid: Newark (EWR)**
-Unless you are flying out of the new Terminal A, EWR is the least predictable of the three for a morning departure, prone to both security bottlenecks and FAA ground delays.
+### 3. The Last Resort: Newark Liberty (EWR)
+*EWR is historically the most delay-prone of the three airports.*
+
+*   **Airspace Congestion (Poor):** EWR shares airspace with LGA and JFK, but due to its runway configuration and heavy reliance on United Airlines’ massive hub operations, it is historically the first airport to suffer FAA-imposed ground delays.
+*   **On-Time Performance (Low):** Bureau of Transportation Statistics (BTS) data consistently ranks EWR near the bottom of major US airports for on-time departures. 
+*   **Terminal Disparity:** If you are flying out of the brand-new **Terminal A**, the experience is world-class. If you are flying out of **Terminal C** (United’s main terminal), security lines at 7:30 AM (for your 9:00 AM flight) can be incredibly congested and unpredictable.
+
+---
+
+### Comparison Summary for a 9:00 AM Departure
+
+| Metric | LaGuardia (LGA) | JFK | Newark (EWR) |
+| :--- | :--- | :--- | :--- |
+| **On-Time Departure Rate** | **Best** (~82-85% for morning) | **Moderate** (~80%) | **Worst** (~75-78%) |
+| **Security Predictability** | **Best** (Modern tech in all terminals) | **Variable** (Highly terminal-dependent) | **Variable** (Terminal A is great, C is chaotic) |
+| **Taxi/Tarmac Time** | **Shortest** (10-15 mins) | **Longest** (20-40 mins) | **Moderate** (15-25 mins) |
+| **Access Predictability** | **Good** (Standard highway traffic) | **Worst** (Severe construction delays) | **Moderate** (NJ Transit train is reliable) |
+
+### Recommendation
+If you want the most **stress-free, predictable experience** for a 9:00 AM departure, **book out of LGA**. Aim to arrive at the airport by 7:30 AM. You will likely breeze through security and be in the air on time. 
+
+*Note: If you must fly JFK or EWR, choose JFK only if you can take the AirTrain (to avoid road construction) or EWR only if you are flying out of the new Terminal A.*
+
+---
+
+
+## Sample Query 2.2: Terminal Recommendations
+
+**Query:**
+
+> What terminal in EWR do you recommend?
+
+### Actual baseline response
+
+Hands down, the best terminal at Newark Liberty International Airport (EWR) is **Terminal A**. 
+
+In fact, it is currently considered one of the best airport terminals in the entire United States, having won the Skytrax award for "World’s Best New Airport Terminal" in 2024.
+
+However, since your terminal is determined by your airline, here is a breakdown of why **Terminal A** is the best, how **Terminal C** compares, and why you should try to avoid **Terminal B**.
+
+---
+
+### 1. The Winner: Terminal A (The Brand New Masterpiece)
+Opened in early 2023 after a $2.7 billion overhaul, Terminal A is modern, spacious, filled with natural light, and features local New Jersey-centric art and design.
+
+*   **Airlines:** Air Canada, American Airlines, Delta Air Lines, JetBlue, and some United Airlines domestic flights.
+*   **Why it’s the best:**
+    *   **Efficiency:** The TSA security checkpoints are state-of-the-art and move incredibly fast. 
+    *   **Vibe:** It is massive, airy, and doesn't feel cramped. There are excellent play areas for kids and sensory rooms.
+    *   **Food:** Incredible options showcasing local NJ/NY favorites, including *Jersey Mike's*, *Town Providence* (fine dining), *Bang cookies*, and *Marcus Samuelsson’s Marcus Bar & Grill*.
+    *   **Lounges:** Features brand-new, stunning lounges, including the Delta Sky Club, United Club, and American Admirals Club. (An American Express Centurion Lounge is also under construction).
+
+### 2. The Runner-Up: Terminal C (The United Airlines Megahub)
+If you are flying United Airlines, you will likely end up here. While it is older than Terminal A, it has been heavily modernized and is a very solid terminal.
+
+*   **Airlines:** United Airlines (domestic and international).
+*   **Why it’s good:**
+    *   **The Food Scene:** It is famous for its iPad-ordering system at almost every seat and restaurant. It has great dining options like *Saison* (French bistro) and *Abruzzo Italian Steakhouse*.
+    *   **Lounges:** If you are flying international business class, Terminal C houses the **United Polaris Lounge**, which is one of the best business-class lounges in the world (featuring a sit-down, à la carte restaurant).
+*   **The Downside:** It can get incredibly crowded, and the gate areas can feel very cramped during peak bank hours.
+
+### 3. The One to Avoid: Terminal B
+Terminal B is the oldest, most outdated terminal at EWR. 
+
+*   **Airlines:** Most foreign international carriers (e.g., Lufthansa, British Airways, Singapore Airlines, Emirates) and Spirit.
+*   **Why it’s tough:**
+    *   It is split into three separate satellite concourses. If you go through security for one concourse, you cannot access the food or amenities in the others.
+    *   The food and shopping options are highly mediocre and limited.
+    *   The security lines can be agonizingly long and chaotic during evening international departure rushes.
+
+---
+
+### Summary Recommendation:
+*   **If you have a choice of airline:** Book **Delta, American, or JetBlue** so you can use **Terminal A**. 
+*   **If you are flying United Business/First Class:** You will love **Terminal C** for the United Polaris Lounge.
+*   **If you are flying international on a foreign carrier:** Prepare for **Terminal B** by arriving early, and consider eating before you get to the airport.
 
 ---
 
@@ -111,54 +167,55 @@ Unless you are flying out of the new Terminal A, EWR is the least predictable of
 
 ### Actual baseline response
 
-To get the smoothest experience out of John F. Kennedy International Airport (JFK), you have to navigate two different forces: **flight reliability** (controlled by air traffic and weather) and **security wait times** (controlled by passenger volume). 
+Historically, navigating John F. Kennedy International Airport (JFK) successfully depends heavily on understanding its unique traffic patterns. Because JFK is a massive international gateway, its rush hours differ significantly from purely domestic airports like LaGuardia. 
 
-Because JFK is a massive international hub with ongoing multi-billion-dollar construction, timing your departure is critical. Here is a breakdown of the best and worst times to fly out of JFK based on historical FAA and TSA data.
-
----
-
-### 1. The Best Window for Reliable Departures: **6:00 AM – 9:00 AM**
-If your primary goal is to avoid delays, **aim for the first flight of the day.**
-* **Why it works:** Aircraft are usually parked at the gates overnight, meaning your flight is highly unlikely to be delayed by an incoming late arrival. Furthermore, air traffic control (ATC) in the congested Northeast airspace does not start backing up until later in the day.
-* **On-time rates:** Flights departing before 9:00 AM historically have an on-time departure rate of **over 85-90%**. By 4:00 PM, that rate often drops below 65%.
-
-### 2. The Best Window for Short Security Lines: **10:00 AM – 1:30 PM**
-If you want to breeze through security and check-in, the midday lull is your best bet.
-* **Why it works:** This is the "intermission" at JFK. The massive morning rush of domestic business travelers has already departed, and the afternoon/evening wave of international travelers to Europe and Asia has not yet arrived.
-* **Exceptions:** While security is quick during this time, flights departing in this window are slightly more prone to delays than early morning flights, though still relatively reliable.
+To secure the most reliable departures and the shortest security wait times, here is a breakdown of the best times to fly and the periods you should avoid.
 
 ---
 
-### 3. The "Red Zones" to Avoid (The Worst Times)
+### 1. The Best Times of Day (The Sweet Spots)
 
-#### **The Late Afternoon/Evening Rush: 4:00 PM – 9:00 PM (Avoid at all costs)**
-This is the absolute worst time to depart from JFK for both delays and security waits.
-* **The Transatlantic Rush:** Between 4:00 PM and 8:00 PM, dozens of massive widebody jets depart for Europe. This floods Terminals 1, 4, and 8 with thousands of passengers, causing security lines to swell.
-* **The Cascading Delay Effect:** By 5:00 PM, any weather or ATC delays that occurred anywhere in the U.S. earlier in the day will have cascaded, resulting in major departure backups on the tarmac. Tarmac taxi times at JFK can easily exceed 45 minutes during this window.
+#### **For the Most Reliable Departures: Early Morning (6:00 AM – 9:00 AM)**
+*   **Why:** Statistically, flights departing before 9:00 AM have the highest on-time performance (historically over 85–90%). 
+*   **The Science:** The aircraft flying these routes usually "slept" at JFK overnight, meaning there is no risk of a late incoming aircraft delaying your departure. Furthermore, air traffic control congestion has not yet built up, and summer afternoon thunderstorms have not yet developed.
+*   **The Catch:** Security lines can be moderately busy during this window with domestic business travelers, but the flights themselves are highly reliable.
 
-#### **The Early Morning Security Rush: 6:00 AM – 8:00 AM**
-* While these flights are the most reliable to *fly* on, the security lines during this window are incredibly long due to the heavy volume of domestic business travelers. If you book a 7:00 AM flight, expect to arrive very early to deal with the queue.
-
----
-
-### 4. Terminal-Specific Nuances
-JFK’s terminals operate almost like individual airports. Depending on your airline, your experience will vary:
-* **Terminal 4 (Delta, Singapore, Virgin Atlantic):** This is JFK’s largest and most congested terminal. Security lines here can be long at almost any hour. If flying Delta, TSA PreCheck or CLEAR is highly recommended.
-* **Terminal 5 (JetBlue):** T5 has a massive morning rush (5:00 AM – 8:00 AM) due to JetBlue’s heavy Caribbean and Florida schedule. It quietens down significantly in the afternoon.
-* **Terminals 1 and 8 (International Carriers, American Airlines):** These terminals experience extreme crowds starting around 3:00 PM due to international departures.
+#### **For the Shortest Security Wait Times: Late Morning to Early Afternoon (10:00 AM – 2:00 PM)**
+*   **Why:** This is the "golden window" at JFK. The early morning domestic rush has subsided, and the massive wave of afternoon/evening international departures has not yet begun. 
+*   **The Science:** TSA wait times are historically at their lowest during these hours, often under 10–15 minutes (and even faster for TSA PreCheck). Departure reliability during this window is also still quite high, as the "cascade delay" effect of the day is only just beginning.
 
 ---
 
-### Summary: The Ultimate JFK Cheat Sheet
+### 2. The Worst Times of Day (Periods to Avoid)
 
-| Time of Day | Flight Reliability | Security Line Speed | Overall Verdict |
-| :--- | :--- | :--- | :--- |
-| **6:00 AM – 9:00 AM** | **Excellent** (Best of the day) | **Moderate to Slow** (Morning rush) | **Highly Recommended** (Just arrive early for security) |
-| **10:00 AM – 1:30 PM** | **Good** | **Excellent** (Shortest lines) | **The Sweet Spot** for a stress-free experience |
-| **2:00 PM – 4:00 PM** | **Fair** | **Moderate** | **Acceptable**, but delays start creeping in |
-| **4:00 PM – 9:00 PM** | **Poor** (High delay risk) | **Poor** (International rush) | **Avoid if possible** |
+#### **The Absolute Worst: Late Afternoon to Evening (4:00 PM – 9:00 PM)**
+If you want a smooth experience, avoid this window at all costs.
+*   **The Transatlantic Rush:** This is when JFK’s massive international fleet prepares to fly to Europe, South America, and Asia. Security checkpoints (especially in Terminal 1, Terminal 4, and Terminal 8) get incredibly congested with travelers carrying heavy baggage.
+*   **Cumulative Delays:** By 5:00 PM, any air traffic delays, weather issues, or crew shortages across the United States have cascaded. A delay in Chicago or Atlanta earlier in the day will likely push your 6:00 PM JFK departure back by hours.
+*   **Summer Thunderstorms:** In the summer months, East Coast airspace is frequently plagued by late-afternoon thunderstorms, which can grind JFK departures to a halt.
 
-**Pro-Tip for Current JFK Travel:** Due to the ongoing "$19 Billion JFK Vision" redevelopment project, there is massive construction around the airport roadways. **Always take the AirTrain** from Jamaica or Howard Beach stations to avoid severe vehicular traffic leading into the central terminal area, especially between 3:00 PM and 7:00 PM.
+#### **The Mini-Rush: Sunday and Monday Mornings (6:00 AM – 8:30 AM)**
+*   While these flights are reliable, the security lines—specifically at **Terminal 5 (JetBlue)** and **Terminal 4 (Delta)**—can be exceptionally long due to a high volume of weekly commuters and weekend leisure travelers returning home.
+
+---
+
+### 3. Best and Worst Days of the Week
+
+*   **Best Days to Fly:** **Tuesdays and Wednesdays.** These are historically the lowest-volume travel days of the week, resulting in cheaper fares, emptier terminals, and shorter security lines. **Saturdays** (especially late morning/afternoon) are also surprisingly quiet.
+*   **Worst Days to Fly:** **Thursdays, Fridays, and Sundays.** Friday afternoon is the peak of travel congestion as business and leisure travelers merge. Sunday afternoon/evening sees massive crowds of returning travelers.
+
+---
+
+### 4. JFK Terminal-Specific Nuances
+
+JFK is not one single airport; it operates as six distinct terminals, and your experience will vary based on where your airline departs:
+
+*   **Terminal 1 (Air France, Lufthansa, Korean Air, etc.):** This terminal is heavily impacted by the evening international rush. Furthermore, **major construction** for the "New Terminal One" is causing significant roadway traffic. Add an extra 45 minutes to your travel time just to get to the terminal curb.
+*   **Terminal 4 (Delta, Virgin Atlantic, Singapore, etc.):** This is JFK’s largest and busiest terminal. Security lines can be massive. If you are flying Delta/T4, utilize TSA PreCheck or CLEAR if you can. The walk to the high-numbered "B" gates can take up to 20 minutes *after* security.
+*   **Terminal 5 (JetBlue):** T5 has a massive morning rush (6:00 AM – 9:00 AM) due to JetBlue's heavy domestic schedule. Security lines during this time can wrap around the lobby. 
+
+### Summary Strategy for a Perfect JFK Departure:
+Book a **Tuesday or Wednesday flight departing between 8:00 AM and 10:00 AM**. You will beat the worst of the morning highway traffic, experience moderate security wait times, and enjoy the highest likelihood of an on-time departure.
 
 ---
 

@@ -33,11 +33,14 @@ QUERIES = {
         "I have a flight departing from Terminal 4 JFK on July 15, 2026 at 8:00 AM."
     ),
 
-    "Sample Query 2: Comparing NYC-Area Airports": (
+    "Sample Query 2.1: Comparing NYC-Area Airports": (
         "I'm deciding between JFK, LaGuardia, and Newark for a 9 am departure. "
         "Which airport has historically offered the most predictable departure "
         "experience, considering security wait times, flight delays, and cancellations?"
     ),
+    "Sample Query 2.2: Terminal Recommendations": (
+            "What terminal in EWR do you recommend?"
+        ),
 
     "Sample Query 3: Best Times of Day for JFK Departures": (
         "For flights departing from JFK, which times of day have historically "
