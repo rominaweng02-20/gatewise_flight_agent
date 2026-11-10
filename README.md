@@ -22,6 +22,8 @@ GateWise currently analyzes only the following:
 
 GateWise is a historical research tool, not a live airport monitoring service. It cannot provide current security-line conditions, airline-specific wait times, check-in or bag-drop estimates, or recommendations for airports outside its supported coverage.
 
+Link: https://gatewise-flight-agent-git-708411086094.europe-west1.run.app 
+
 ---
 
 ## 2. Data Sources:
