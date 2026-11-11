@@ -4,7 +4,7 @@
 
 ## 1. Project Overview
 
-**GateWise** is an AI-powered airport research assistant that investigates airport security wait times, flight reliability, weather, and airport operations to help travelers plan ahead for a seamless departure experience. GateWise helps travelers plan when to arrive at the airport and assess potential disruption risks through a multi-agent research system that investigates data sources in parallel, synthesizes findings, and delivers concise, evidence-backed answers with citations. 
+**GateWise** is an airport research assistant that investigates security wait times, flight reliability, weather, and airport operations to help travelers plan ahead for a seamless departure experience. GateWise helps travelers plan when to arrive at the airport and assess potential disruption risks through a multi-agent research system that investigates data sources in parallel, synthesizes findings, and delivers concise, evidence-backed answers with citations. 
 
 ### Primary Target User:
 
@@ -30,7 +30,7 @@ GateWise combines four independent data sources to investigate airport departure
 
 | Data source | Information used | Analytical purpose | Analytics function |
 |---|---|---|---|
-| TSA posted security wait times | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns | `security_patterns()` |
+| TSA posted security wait times (Hugging Face) | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns | `security_patterns()` |
 | Bureau of Transportation Statistics (BTS) | Flight departure delays, cancellations, and percentage of flights departing 15+ minutes late | Measure historical flight departure reliability | `flight_reliability()` |
 | NOAA National Centers for Environmental Information (NCEI) | Hourly weather observations, including visibility, wind, gusts, precipitation, and temperature | Examine weather conditions associated with airport disruptions | `weather_conditions()` |
 | FAA OPSNET | Daily airport operations, operational delays, and reported delay causes | Compare airport operational activity and disruption patterns | `airport_operations()` |
@@ -151,7 +151,7 @@ This is an illustrative planning estimate, not a validated safe-arrival recommen
 
 ---
 
-### Sample Query 2: Which NYC-area airport offers the most predictable 9 AM departure?
+### Sample Query 2: 
 
 **Query:**
 
@@ -177,7 +177,6 @@ LGA is the most predictable for security and EWR is the most reliable for flight
 - Historical only (Apr 1–Aug 31, 2026), standard queues only, with the 8–10 AM hourly window used as a proxy for a 9 AM departure.
 - Security figures are hourly airport-level weighted posted estimates, not individual passenger waits.
 - Late-departure shares and average delays cover departed flights only. Cancellation rates use all scheduled flights.
-- Delays over 30 minutes are not available in this dataset.
 - Does not cover live conditions, airline-specific differences, terminal-level queues, or check-in, bag-drop, and gate-walk time.
 
 **Underlying Data and Analytical Tools:**
@@ -300,7 +299,7 @@ All calls use `start_date=2026-04-01, end_date=2026-08-31`.
 > ### Summary Recommendation:
 > *   **If you have a choice of airline:** Book **Delta, American, or JetBlue** so you can use **Terminal A**. 
 > *   **If you are flying United Business/First Class:** You will love **Terminal C** for the United Polaris Lounge.
-> *   **If you are flying international on a foreign carrier:** Prepare for **Terminal B** by arriving early, and > consider eating before you get to the airport.
+> *   **If you are flying international on a foreign carrier:** Prepare for **Terminal B** by arriving early, and consider eating before you get to the airport.
 ---
 
 ### Sample Query 3:
