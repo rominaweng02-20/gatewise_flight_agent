@@ -128,26 +128,60 @@ This is an illustrative planning estimate, not a validated safe-arrival recommen
 | E2 | Flight reliability | BTS On-Time Performance, `flight_hourly` | `analyze_flight_risk_profile(airports=['JFK'], start_date=2026-07-01, end_date=2026-07-31, days_of_week=['Wednesday'], start_hour=8, end_hour=9)` |
 | E3 | Weather conditions | NOAA NCEI, `weather_hourly_local` | `analyze_weather_risk_profile(airports=['JFK'], <dates>, <hours>, <thresholds>)` |
 
-**Baseline: Same Model, No Tools and No System Prompt**
 
-> That sounds like you are planning well ahead! A Wednesday morning departure from JFK's busy Terminal 4 requires a bit of strategy.
->
-> Here is a recommended timeline and some key tips to keep in mind for your departure on **July 15, 2026**:
->
-> ### **Recommended Timeline**
->
-> - **For International Flights:** Plan to arrive at Terminal 4 by **5:00 AM** (3 hours prior).
-> - **For Domestic Flights:** Plan to arrive at Terminal 4 by **6:00 AM** (2 hours prior).
->
-> *Note: Terminal 4 is one of the largest terminals at JFK (major hub for Delta, as well as many international airlines like Emirates, Singapore, and Virgin Atlantic). The walk to the furthest gates (especially the B gates) can take 15 to 20 minutes even after you pass security.*
->
-> ### **How to prepare as the date approaches:**
->
-> 1. **TSA PreCheck / CLEAR:** If you have these, they are highly recommended for T4, as morning rush hours (6:00 AM to 8:00 AM) can have very long standard security lines.
-> 2. **Transportation:**
->    - If taking a rideshare (Uber/Lyft) or taxi from NYC, aim to leave by 4:15 AM – 5:15 AM (depending on your starting point) to avoid any early morning construction or highway bottlenecks.
->    - If taking the **LIRR or Subway to Jamaica Station**, the AirTrain runs 24/7 and takes about 15 minutes from Jamaica to Terminal 4.
-> 3. **Lounge Access:** Terminal 4 has some of the best lounges at JFK, including the Delta Sky Club, American Express Centurion Lounge, and Chase Sapphire Lounge. If you have access, arriving early to grab breakfast is highly recommended.
+**Model Comparison:**
+
+| Base Model (Same Model, No Tools or System Prompt) | GateWise (With Tools) |
+|---|---|
+| Recommends arriving by **5:00 AM for international flights** or **6:00 AM for domestic flights**, based on general airport guidance. Provides suggestions about PreCheck/CLEAR, transportation, and lounge access, but does not analyze historical security wait times, flight reliability, or weather data. | Recommends a typical arrive-by time of **6:56 AM** and a conservative arrive-by time of **6:47 AM**, using terminal-specific TSA estimates. Supplements arrival planning with historical flight delay and cancellation rates, weather observations, and evidence citations. Discloses data limitations and distinguishes historical patterns from conditions on the specific travel date. |
+
+<details>
+<summary><strong>Full Base Model Response</strong></summary>
+
+That sounds like you are planning well ahead! A Wednesday morning departure from JFK's busy Terminal 4 requires a bit of strategy.
+
+Here is a recommended timeline and some key tips to keep in mind for your departure on **July 15, 2026**:
+
+### **Recommended Timeline**
+
+- **For International Flights:** Plan to arrive at Terminal 4 by **5:00 AM** (3 hours prior).
+- **For Domestic Flights:** Plan to arrive at Terminal 4 by **6:00 AM** (2 hours prior).
+
+*Note: Terminal 4 is one of the largest terminals at JFK (major hub for Delta, as well as many international airlines like Emirates, Singapore, and Virgin Atlantic). The walk to the furthest gates (especially the B gates) can take 15 to 20 minutes even after you pass security.*
+
+### **How to prepare as the date approaches:**
+
+1. **TSA PreCheck / CLEAR:** If you have these, they are highly recommended for T4, as morning rush hours (6:00 AM to 8:00 AM) can have very long standard security lines.
+2. **Transportation:**
+   - If taking a rideshare (Uber/Lyft) or taxi from NYC, aim to leave by 4:15 AM – 5:15 AM (depending on your starting point) to avoid any early morning construction or highway bottlenecks.
+   - If taking the **LIRR or Subway to Jamaica Station**, the AirTrain runs 24/7 and takes about 15 minutes from Jamaica to Terminal 4.
+3. **Lounge Access:** Terminal 4 has some of the best lounges at JFK, including the Delta Sky Club, American Express Centurion Lounge, and Chase Sapphire Lounge. If you have access, arriving early to grab breakfast is highly recommended.
+
+</details>
+
+<details>
+<summary><strong>Full GateWise Response</strong></summary>
+
+**GateWise**
+
+**Arrive** For an 8:00 AM departure at Terminal 4 on Wednesday, July 15, 2026, the typical arrive-by time is 06:56 [E5] and the conservative arrive-by time is 06:47 [E5]. Under these estimates, the typical security wait is 19.0 minutes (the mean of the hourly P50 estimates) [E5], and the conservative wait is 28.0 minutes (the maximum hourly P95) [E5]. This terminal-specific evidence is thin, covering only 2 observed hours [E5] on 1 observed day [E5], making these arrival times illustrative historical estimates rather than validated safe arrival recommendations. These calculations treat the security window and other overhead as assumptions, not empirical data.
+
+**Disruption risk** For JFK departures on Wednesdays in July 2026 between 8:00 AM and 9:00 AM, 20.51% of departures (24 flights) were delayed by 15+ minutes [E3], and the cancellation rate was 10.0% (13 out of 130 scheduled flights) [E3].
+
+**What's driving it** Historical patterns for July Wednesdays at 8:00 AM show 100% of visibility observations met safety thresholds [E2] and wind speed was under 10 m/s [E2]. Wind and visibility risk indicators were not triggered and do not explain the disruptions seen [E2]. Comparable precipitation weather evidence is unavailable as there are 0 valid observations [E2]. These historical pattern estimates for July Wednesdays [E2][E3] are distinguished from your specific travel date. Security arrival windows provide planning context but do not overlap with or explain flight disruptions.
+
+**What the data can't tell you** Live conditions, airline-specific effects, physical queue lines beyond posted estimates, actual check-in/bag-drop/gate transit times, dates outside April-August 2026, or precipitation patterns due to missing observations [E2].
+
+---
+
+**Evidence**
+
+- **[E2]** NOAA NCEI hourly weather risk indicators: `analyze_weather_risk_profile(airports=['JFK'], start_date=2026-07-01, end_date=2026-07-31, visibility_threshold_km=5.0, precipitation_threshold_mm=1.0, wind_threshold_m_s=10.0, day_type=weekday, start_hour=8, end_hour=9, days_of_week=['Wednesday'])`
+- **[E3]** BTS on-time performance (pooled hourly): `analyze_flight_risk_profile(airports=['JFK'], start_date=2026-07-01, end_date=2026-07-31, day_type=weekday, days_of_week=['Wednesday'], start_hour=8, end_hour=9)`
+- **[E5]** TSA posted wait times (Hugging Face: digitalhen/us-airport-wait-times): `analyze_security_patterns(airports=['JFK'], start_date=2026-07-15, end_date=2026-07-15, grain=hourly, terminal=4, queue_type=standard)`
+
+</details>
+
 
 ---
 
