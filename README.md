@@ -28,12 +28,14 @@ Link: https://gatewise-flight-agent-git-708411086094.europe-west1.run.app
 
 GateWise combines four independent data sources to investigate airport departure conditions
 
+
 | Data source | Information used | Analytical purpose | Analytics function |
 |---|---|---|---|
-| TSA posted security wait times (Hugging Face) | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns | `security_patterns()` |
-| Bureau of Transportation Statistics (BTS) | Flight departure delays, cancellations, and percentage of flights departing 15+ minutes late | Measure historical flight departure reliability | `flight_reliability()` |
-| NOAA National Centers for Environmental Information (NCEI) | Hourly weather observations, including visibility, wind, gusts, precipitation, and temperature | Examine weather conditions associated with airport disruptions | `weather_conditions()` |
-| FAA OPSNET | Daily airport operations, operational delays, and reported delay causes | Compare airport operational activity and disruption patterns | `airport_operations()` |
+| [TSA posted security wait times (Hugging Face)](https://huggingface.co/datasets/digitalhen/us-airport-wait-times) | Standard and PreCheck wait estimates by airport and terminal | Compare security wait distributions and identify time-based patterns | `security_patterns()` |
+| [Bureau of Transportation Statistics (BTS)](https://transtats.bts.gov/ONTIME/) | Flight departure delays, cancellations, and percentage of flights departing 15+ minutes late | Measure historical flight departure reliability | `flight_reliability()` |
+| [NOAA National Centers for Environmental Information (NCEI)](https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database) | Hourly weather observations, including visibility, wind, gusts, precipitation, and temperature | Examine weather conditions associated with airport disruptions | `weather_conditions()` |
+| [FAA Operations Network (OPSNET)](https://www.aspm.faa.gov/opsnet/sys/main.asp) | Daily airport operations, operational delays, and reported delay causes | Compare airport operational activity and disruption patterns | `airport_operations()` |
+
 
 ### Loading and Reproducing the Analysis
 
